@@ -34,9 +34,10 @@
             if(!addReg.test(add)){
                 alert("Address should not be empty")
             }
+            localStorage.setItem("customer",customer)
             localStorage.setItem("product",product);
-            localStorage.setItem("price",price);
-            localStorage.setItem("quantity",qty);
+           
+            localStorage.setItem("Address",add);
         })
     </script>
 </body>
