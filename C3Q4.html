@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Name: <input type="text" name="" id="name"/><br>
+        Email: <input type="text" name="" id="email"/><br>
+        Password: <input type="text" name="" id="pass"/><br>
+        <button type="submit" id="btn">Submit</button>
+    </form>
+    <script>
+        const btn=document.getElementById("btn");
+        btn.addEventListener('click',()=>{
+            const name=document.getElementById("name").value;
+            const email=document.getElementById("email").value;
+            const pass=document.getElementById("pass").value;
+            const nameReg=/[A-Za-z]/;
+            const emailReg=/[^\s@]+@[^\s@]+\.[^\s@]/;
+            const passReg=/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}/;
+            if(!nameReg.test(name)){
+                alert("Only alphabetic characters enter");
+
+            }
+            if(!emailReg.test(email)){
+                alert("Enter a valid Email id");
+            }
+            if(!passReg.test(pass)){
+                alert("Password should be minimum length of 8 characters including at least one uppercase letter one lowecase letter and one digit")
+            }
+           localStorage.setItem("name",name);
+           localStorage.setItem("email",email);
+           localStorage.setItem("pass",pass);
+       
+        });
+    </script>
+    
+</body>
+</html>

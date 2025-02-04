@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Customer Name: <input type="text" name="" id="customer"/><br>
+        Product: <input type="text" name="" id="product"/><br>
+        Address: <input type="text" name="" id="add"/><br>
+        <button type="submit" id="btn">Submit</button>
+    </form>
+    <script>
+        const btn=document.getElementById("btn");
+        btn.addEventListener('click',()=>{
+            const customer=document.getElementById("customer").value;
+            const add=document.getElementById("add").value;
+
+            const productList=["TV","AC","Laptop"]
+            const product=document.getElementById("product").value;
+            const customerReg=/[A-Za-z]/;
+            const addReg=/[A-Za-z]/;
+            
+            if(!customerReg.test(customer)){
+                alert("Should not be empty....")
+            }
+            if(!productList.includes(product)){
+                alert("product not found....")
+
+            }
+
+            if(!addReg.test(add)){
+                alert("Address should not be empty")
+            }
+            localStorage.setItem("product",product);
+            localStorage.setItem("price",price);
+            localStorage.setItem("quantity",qty);
+        })
+    </script>
+</body>
+</html>

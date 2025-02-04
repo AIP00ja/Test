@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Product Name: <input type="text" name="" id="product"/><br>
+        Price: <input type="text" name="" id="price"/><br>
+        Quantity:<input type="number" name="" id="qty"/><br>
+        <button type="submit" id="btn">Submit</button>
+    </form>
+    <script>
+        const btn=document.getElementById("btn");
+        btn.addEventListener('click',()=>{
+            const product=document.getElementById("product").value;
+            const price=document.getElementById("price").value;
+            const qty=document.getElementById("qty").value;
+            const productReg=/[A-Za-z]/;
+            const priceReg=/^\d+$/;
+
+            if(!productReg.test(product)){
+                alert("Should not be empty....")
+            }
+            if(!priceReg.test(price)){
+                alert("Should be a positive no.")
+            }
+            if(qty<= 0){
+                alert("Should be a numeric value graeter than 0")
+            }
+            localStorage.setItem("product",product);
+            localStorage.setItem("price",price);
+            localStorage.setItem("quantity",qty);
+        })
+    </script>
+</body>
+</html>

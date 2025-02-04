@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Name: <input type="text" name="" id="name"/><br>
+        Email:<input type="text" name="" id="email"/><br>
+        Query:<input type="text" name="" id="qty"/><br>
+        <button type="submit" id="btn">Submit</button>
+    </form>
+    <script>
+        const btn=document.getElementById("btn");
+        btn.addEventListener('click',()=>{
+            const name=document.getElementById("name").value;
+            const email=document.getElementById("email").value;
+            const qty=document.getElementById("qty").value;
+            const nameReg=/[A-Za-z]/;
+            const emailReg=/[^\s@]+@[^\s@]+\.[^\s@]/;
+            if(!nameReg.test(name)){
+                alert("Is not empty and enter only characters")
+            }
+            if(!emailReg.test(email)){
+                alert("Enter a valid email id")
+            }
+            if(qty.length < 10){
+                alert("Only 10 characters enter")
+            }
+            localStorage.setItem("name",name);
+            localStorage.setItem("email",email);
+            localStorage.setItem("Query",qty);
+        })
+    </script>
+    
+</body>
+</html>
